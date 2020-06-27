@@ -1,15 +1,15 @@
 function preload() {
-  imagemCenario = loadImage('imagens/cenario/floresta.png');
-  imagemTelaInicial = loadImage('imagens/assets/telaInicial.png');
-  imagemGameOver = loadImage('imagens/assets/game-over.png');
-  imagemPersonagem = loadImage('imagens/personagem/correndo.png');
-  imagemInimigo = loadImage('imagens/inimigos/gotinha.png');
-  imagemInimigoVoador = loadImage('imagens/inimigos/gotinha-voadora.png');
-  imagemInimigoGrande = loadImage('imagens/inimigos/troll.png');
-  imagemVida = loadImage('imagens/assets/coracao.png')
+  imagemCenario = loadImage('images/cenario/floresta.png');
+  imagemTelaInicial = loadImage('images/assets/telaInicial.png');
+  imagemGameOver = loadImage('images/assets/game-over.png');
+  imagemPersonagem = loadImage('images/personagem/correndo.png');
+  imagemInimigo = loadImage('images/inimigos/gotinha.png');
+  imagemInimigoVoador = loadImage('images/inimigos/gotinha-voadora.png');
+  imagemInimigoGrande = loadImage('images/inimigos/troll.png');
+  imagemVida = loadImage('images/assets/coracao.png')
 
-  fonteTelaInicial = loadFont('imagens/assets/fonteTelaInicial.otf');
-  
+  fonteTelaInicial = loadFont('images/assets/fonteTelaInicial.otf');
+
   somDoJogo = loadSound('sons/trilha_jogo.mp3');
   somDoPulo = loadSound('sons/somPulo.mp3');
 }

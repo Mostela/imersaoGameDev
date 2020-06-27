@@ -18,7 +18,8 @@ resource "aws_instance" "mostelagame" {
 
 resource "aws_key_pair" "my-key" {
   key_name = "joaodesk"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD/AEafh3mnxSvWHFI9ufHhxwJQEfGxuvkPfUtrFzVpTbY1s4a0VFZzhwj5t9m8/IlE4+P5zqeqR2yy7p6Y0B/QRtTHwYp/A+YuAaTy+RopPXPYvQlq6RIJCBVCZzOVrKH8fBB2MIgxo3+WkDeMBIeKoOoc+2AlUpZPCzon/Yyf0grb0DUbb7+U7qiOuEt2aUKJ2aRXecc05rX0CKzm8t/t5G9Cz/51hW/a23vk75xNYZ2hmt746JFzZKiiymZHhPpahSo5eUycSfP1mXmSYomop4oeOVoiYH8wevdkki7gtUkUvXEcKHG5TZXnIdsvpmnnOnCbPsyG/wl8z4eXqa77 joao@joaodesk"
+  # Informe a chave SSH do computador antes
+  public_key = ""
 }
 
 resource "aws_security_group" "alow_connect"{
@@ -33,18 +34,11 @@ resource "aws_security_group" "alow_connect"{
     },
     {
       description = "Servidor Jogo"
-      from_port = 3000
-      to_port = 3000
+      from_port = 80
+      to_port = 80
       protocol = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     },
-    {
-      description = "Redirecionamento da 80 (Default) para do jogo"
-      from_port = 80
-      to_port = 3000
-      protocol = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
   ]
   egress {
     from_port = 0

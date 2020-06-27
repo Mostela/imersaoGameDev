@@ -1,6 +1,7 @@
 class Pontuacao {
   constructor() {
     this.pontos = 0
+    this.pontosMil = 0
   }
   
   exibe() {
@@ -12,5 +13,10 @@ class Pontuacao {
   
   adicionarPonto() {
     this.pontos = this.pontos + 0.2
+    this.pontosMil = this.pontosMil + 0.2
+    if(this.pontosMil >= 100){
+      vida.ganhaVida()
+      this.pontosMil = 0
+    }
   }
 }

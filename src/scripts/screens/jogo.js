@@ -8,19 +8,39 @@ class Jogo {
       },
       {
         inimigo: 1,
-        velocidade: 15
+        velocidade: 8
       },
       {
         inimigo: 1,
+        velocidade: 8
+      },
+      {
+        inimigo: 2,
         velocidade: 10
       },
       {
-        inimigo: 2,
-        velocidade: 2
+        inimigo: 0,
+        velocidade: 5
+      },
+      {
+        inimigo: 0,
+        velocidade: 3
+      },
+      {
+        inimigo: 1,
+        velocidade: 7
       },
       {
         inimigo: 2,
-        velocidade: 4
+        velocidade: 10
+      },
+      {
+        inimigo: 0,
+        velocidade: 7
+      },
+      {
+        inimigo: 2,
+        velocidade: 12
       }
     ]
   }
@@ -29,7 +49,7 @@ class Jogo {
     cenario = new Cenario(imagemCenario, 3);
     pontuacao = new Pontuacao()
 
-    vida = new Vida(3,3)
+    vida = new Vida(5,3)
 
     personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270);
     const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30, 52, 52, 104, 104, 10);
