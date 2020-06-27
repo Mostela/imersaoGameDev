@@ -1,0 +1,43 @@
+---
+- hosts: maquinaAws
+  gather_facts: false
+  become: yes
+
+  pre_tasks:
+    - name: "Atualiza os pacotes da maquina"
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        cache_valid_time: 3600
+      notify:
+        - salva horario
+  tasks:
+    - name: "Instala o servidor Nginx"
+      apt:
+        name: nginx
+        state: present
+    - name: "Configura porta do servidor"
+      copy:
+        src: ./config/default.conf
+        dest: /etc/nginx/sites-enabled/
+
+    - name: "Prepara os arquivos do jogo na pasta"
+      copy:
+        src: ./src/
+        dest: /usr/share/nginx/html
+
+    - name: "Reinicia o server"
+      service:
+        name: nginx
+        state: restarted
+      notify:
+        - salva horario
+
+  post_tasks:
+    - name: "Verifica se existe conteudo na porta"
+      uri:
+        url: http://127.0.0.1:3000
+        status_code: 200
+  handlers:
+    - name: "salva horario"
+      shell: date >> /home/hora.txt
