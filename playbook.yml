@@ -16,7 +16,7 @@
       apt:
         name: nginx
         state: present
-    - name: "Configura porta do servidor"
+    - name: "Configura porta do nginx no servidor"
       copy:
         src: ./config/default.conf
         dest: /etc/nginx/sites-enabled/
@@ -25,6 +25,11 @@
       copy:
         src: ./src/
         dest: /usr/share/nginx/html
+
+    - name: "Prepara os arquivos em outra pasta"
+      copy:
+        src: ./src/
+        dest: /var/www/html
 
     - name: "Reinicia o server"
       service:
@@ -36,7 +41,7 @@
   post_tasks:
     - name: "Verifica se existe conteudo na porta"
       uri:
-        url: http://127.0.0.1:3000
+        url: http://127.0.0.1:80
         status_code: 200
   handlers:
     - name: "salva horario"
